@@ -1,1 +1,32 @@
-<p>navbar works!</p>
+<div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">             
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/inventory">Inventario</a></li>
+          <li><a href="/acquisitions">Adquisiciones</a></li>
+          <li><a href="/reports">Reportes</a></li>
+          <li><a href="/administration">Administración</a></li>
+        </ul>
+      </div>
+      <a class="btn btn-ghost normal-case text-xl">Librería Nacional ERP</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal p-0">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/inventory">Inventario</a></li>
+        <li><a href="/acquisitions">Adquisiciones</a></li>
+        <li><a href="/reports">Reportes</a></li>
+        <li><a href="/administration">Administración</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <a class="btn">Iniciar sesión</a>
+    </div>
+  </div>
+  
