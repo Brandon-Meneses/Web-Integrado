@@ -1,3 +1,19 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<div class="container mx-auto px-4">
+  <header class="bg-primary text-white p-4 shadow-lg">
+    <h1>Bienvenido a La Librería Nacional</h1>
+  </header>
+  <nav class="bg-secondary px-4 py-2 text-white">
+    <ul class="flex space-x-4">
+      <li><a href="#" class="hover:text-opacity-75">Inicio</a></li>
+      <li><a href="#" class="hover:text-opacity-75">Inventario</a></li>
+      <li><a href="#" class="hover:text-opacity-75">Reportes</a></li>
+      <li><a href="#" class="hover:text-opacity-75">Contacto</a></li>
+    </ul>
+  </nav>
+  <main class="my-4">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="bg-primary text-center text-white p-4">
+    © 2024 La Librería Nacional
+  </footer>
+</div>
