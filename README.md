@@ -1,6 +1,14 @@
 # Proyecto de ERP Gestión de Inventario - La Librería Nacional
 
-Este proyecto es una aplicación web empresarial desarrollada para la gestión centralizada del inventario de libros en La Librería Nacional. Proporciona una interfaz de usuario que permite a los empleados consultar el stock actualizado, buscar libros, registrar adquisiciones y generar reportes de manera centralizada.
+Este proyecto es una aplicación web empresarial desarrollada para la gestión centralizada del inventario de libros en La Librería Nacional. Proporciona una interfaz de usuario que permite a los empleados consultar el stock actualizado, buscar libros, registrar adquisiciones y generar reportes de manera centralizada. El proyecto se desarrollara con Angular para el frontend con Tailwind y DaisyUI, para el backend se utilizara Jakarta EE, ApiREST y JPA para la persistencia de datos. También se utilizará Maven como herramienta de gestión de dependencias y construcción del proyecto.
+
+El proyecto se estructurará siguiendo una arquitectura de tres capas, con una capa de presentación en Angular, una capa de negocio en Jakarta EE y una capa de persistencia en JPA.
+
+Además, se implementarán servicios RESTful en el backend utilizando la especificación JAX-RS de Jakarta EE para permitir la comunicación entre el frontend y el backend de manera eficiente.
+
+El objetivo principal del proyecto es proporcionar una solución completa y escalable para la gestión de inventario de libros en La Librería Nacional, brindando una experiencia de usuario intuitiva y eficiente.
+
+Si tienes alguna pregunta adicional o necesitas más ayuda, no dudes en preguntar.
 
 ## Configuración del Proyecto
 
