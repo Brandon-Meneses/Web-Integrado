@@ -1,51 +1,45 @@
-# Proyecto de ERP Gestión de Inventario - La Librería Nacional
+# Proyecto de ERP Gestión de Inventario
 
-Este proyecto es una aplicación web empresarial desarrollada para la gestión centralizada del inventario de libros en La Librería Nacional. Proporciona una interfaz de usuario que permite a los empleados consultar el stock actualizado, buscar libros, registrar adquisiciones y generar reportes de manera centralizada. El proyecto se desarrollara con Angular para el frontend con Tailwind y DaisyUI, para el backend se utilizara Jakarta EE, ApiREST y JPA para la persistencia de datos. También se utilizará Maven como herramienta de gestión de dependencias y construcción del proyecto.
+Este proyecto tiene como objetivo desarrollar una aplicación web empresarial para la gestión centralizada del inventario de libros en 'La Librería Nacional', una cadena con 25 sucursales distribuidas en diferentes departamentos.
 
-El proyecto se estructurará siguiendo una arquitectura de tres capas, con una capa de presentación en Angular, una capa de negocio en Jakarta EE y una capa de persistencia en JPA.
+Se utiliza Spring Framework en el backend para construir la capa de servicios, y Angular en el frontend para proporcionar una interfaz de usuario. 
 
-Además, se implementarán servicios RESTful en el backend utilizando la especificación JAX-RS de Jakarta EE para permitir la comunicación entre el frontend y el backend de manera eficiente.
+La aplicación permitirá a los empleados consultar el stock actualizado, buscar libros, registrar adquisiciones y generar reportes de manera centralizada, además de contar con endpoints RESTful para la integración con sistemas externos.
 
-El objetivo principal del proyecto es proporcionar una solución completa y escalable para la gestión de inventario de libros en La Librería Nacional, brindando una experiencia de usuario intuitiva y eficiente.
+### Sustentación del Proyecto
 
-Si tienes alguna pregunta adicional o necesitas más ayuda, no dudes en preguntar.
+[Documento de Sustentación](#)
 
-## Configuración del Proyecto
+## Requerimientos minimos
 
-1. **Clonar el Repositorio:** Para comenzar, clona este repositorio en tu máquina local utilizando el siguiente comando:
+- Java 17
+- Node.js 20
+- Angular CLI 17
 
+## Instalación
+
+1. Clonar el repositorio
+    ```bash
+    git clone https://github.com/Brandon-Meneses/Web-Integrado.git
     ```
-    git clone git@github.com:Brandon-Meneses/Web-Integrado.git
+2. Angular CLI (opcional si no está instalado)
+    ```bash
+    npm install -g @angular/cli
     ```
-
-2. **Instalar Dependencias:** Una vez que hayas clonado el repositorio, navega hasta el directorio del proyecto y ejecuta el siguiente comando para instalar todas las dependencias necesarias:
-
-    ```
-    cd proyecto-inventario
+3. Instalar dependencias del frontend
+    ```bash
+    cd WEB-INTEGRADO/gestion-libreria
     npm install
     ```
-
-3. **Servidor de Desarrollo:** Después de instalar las dependencias, puedes iniciar el servidor de desarrollo local utilizando el siguiente comando. Esto iniciará la aplicación y abrirá automáticamente una ventana del navegador en `http://localhost:4200/`.
-
-    ```
+4. Ejecutar la aplicación
+    ```bash
     ng serve
     ```
-
-4. **Crear Nuevos Componentes:** Puedes crear nuevos componentes fácilmente utilizando el Angular CLI. Por ejemplo, para crear un nuevo componente llamado `nuevo-componente`, puedes especificar la ruta relativa al directorio utilizando la opción --dir, ejecuta el siguiente comando:
-
+5. Acceder a la aplicación en el navegador
     ```
-    ng generate component nuevo-componente --dir=directorio
+    http://localhost:4200
     ```
 
-    Esto creará automáticamente los archivos necesarios para el componente en el directorio correspondiente y actualizará automáticamente los archivos de configuración del proyecto.
+## Contribuye
 
-## Contribución
-
-Si deseas contribuir a este proyecto, asegúrate de seguir las pautas de contribución en [CONTRIBUTING.md](CONTRIBUTING.md). ¡Esperamos tus contribuciones!
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con el equipo de desarrollo:
-
-- Nombre: Brandon Luis Meneses Solorzano
-- Email: blmenesess.19@gmail.com
+Crear una bifurcación (Fork) del repositorio y contribuye con tus cambios a través de Pull Requests. Asegurate de describir tus cambios de manera clara en los comentarios.
