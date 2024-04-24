@@ -1,4 +1,4 @@
-# Proyecto de ERP Gestión de Inventario
+# Proyecto ERP - Gestión de Inventario
 
 Este proyecto tiene como objetivo desarrollar una aplicación web empresarial para la gestión centralizada del inventario de libros en 'La Librería Nacional', una cadena con 25 sucursales distribuidas en diferentes departamentos.
 
