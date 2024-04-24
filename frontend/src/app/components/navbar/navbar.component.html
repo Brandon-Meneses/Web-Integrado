@@ -1,0 +1,39 @@
+<!-- navbar.component.html -->
+<nav class="bg-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex-shrink-0 flex items-center">
+            <img src="../../../assets/imagenes/LogoVintage.png" class="block lg:hidden h-12 w-12" alt="La Librería Nacional logo">
+            <img src="../../../assets/imagenes/LogoVintage.png" class="hidden lg:block h-12 w-12" alt="La Librería Nacional logo">
+          </div>
+          <div class="hidden sm:block sm:ml-6">
+            <div class="flex space-x-4">
+              <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Inicio</a>
+              <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Inventario</a>
+              <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Reportes</a>
+              <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Contacto</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <button class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <span class="sr-only">Ver notificaciones</span>
+            <!-- Icono de notificación -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0018 14.58V12a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v1.341C7.67 6.338 6 8.669 6 11.5V14c0 .386-.055.747-.16 1.083L4.5 17h6m6 0v2a2 2 0 11-4 0v-2m4 0H9"/>
+            </svg>
+          </button>
+          <!-- Perfil y configuración -->
+          <div class="ml-3 relative">
+            <div>
+              <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <img class="h-8 w-8 rounded-full" src="../../../assets/imagenes/Avatar.webp" alt="Perfil">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
