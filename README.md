@@ -28,7 +28,7 @@ La aplicación permitirá a los empleados consultar el stock actualizado, buscar
     ```
 3. Instalar dependencias del frontend
     ```bash
-    cd WEB-INTEGRADO/gestion-libreria
+    cd Web-Integrado/gestion-libreria
     npm install
     ```
 4. Ejecutar la aplicación
