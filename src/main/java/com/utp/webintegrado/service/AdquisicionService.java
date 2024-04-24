@@ -46,4 +46,8 @@ public class AdquisicionService {
         return null;
     }
 
+    public boolean exists(Integer id){
+        return adquisicionPaginSortRepository.existsById(id);
+    }
+
 }

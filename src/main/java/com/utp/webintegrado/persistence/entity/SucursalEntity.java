@@ -1,5 +1,7 @@
 package com.utp.webintegrado.persistence.entity;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "sucursal")
-public class SucursalEntity {
+public class SucursalEntity implements Serializable{
 
     @Id
     @Column(name = "id_sucursal")

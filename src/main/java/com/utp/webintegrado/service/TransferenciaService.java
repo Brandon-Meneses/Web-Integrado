@@ -45,4 +45,8 @@ public class TransferenciaService {
         return null;
     }
 
+    public boolean exists(Integer id){
+        return transferenciaPaginSortRepository.existsById(id);
+    }
+
 }
