@@ -45,4 +45,8 @@ public class StockService {
         return null;
     }
 
+    public boolean exists(Integer id){
+        return stockPaginSortRepository.existsById(id);
+    }
+
 }

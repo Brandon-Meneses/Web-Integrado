@@ -44,4 +44,8 @@ public class UsuarioService {
         }
         return null;
     }
+
+    public boolean exists(Integer id){
+        return usuarioPaginSortRepository.existsById(id);
+    }
 }

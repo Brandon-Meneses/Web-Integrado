@@ -45,4 +45,8 @@ public class LibroService {
         return null;
     }
 
+    public boolean exists(Integer id){
+        return libroPaginSortRepository.existsById(id);
+    }
+
 }

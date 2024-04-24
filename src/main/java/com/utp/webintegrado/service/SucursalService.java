@@ -45,4 +45,8 @@ public class SucursalService {
         return null;
     }
 
+    public boolean exists(Integer id){
+        return sucursalPaginSortRepository.existsById(id);
+    }
+
 }
