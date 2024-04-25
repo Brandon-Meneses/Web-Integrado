@@ -3,8 +3,8 @@ package com.utp.webintegrado.persistence.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.time.LocalDateTime;
-import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -30,7 +30,6 @@ public class AdquisicionEntity {
 
     @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.DATE)
-    @CreationTimestamp
-    private LocalDateTime fecha;
+    private LocalDate fecha;
 
 }
