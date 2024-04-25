@@ -1,6 +1,5 @@
 package com.utp.webintegrado.persistence.entity;
 
-import java.io.Serializable;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "libro")
-public class LibroEntity implements Serializable{
+public class LibroEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
