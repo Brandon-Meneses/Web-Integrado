@@ -39,7 +39,7 @@ La aplicación permitirá a los empleados consultar el stock actualizado, buscar
 4. Inicia el servidor backend
 
     ```bash
-    mvn spring-boot:run
+    ./gradlew bootRun
     ```
 
     No es necesario crear la base de datos manualmente, ya que Spring Boot se encargará de crearla automáticamente al iniciar la aplicación.
