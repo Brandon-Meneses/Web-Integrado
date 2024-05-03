@@ -30,19 +30,13 @@ public class LibroService {
     }
 
     public LibroEntity update(Integer id, LibroEntity libro) {
-        if (libroPaginSortRepository.existsById(id)) {
             return libroPaginSortRepository.save(libro);
-        }
-        return null;
     }
 
     public LibroEntity delete(Integer id) {
-        if (libroPaginSortRepository.existsById(id)) {
             LibroEntity libro = libroPaginSortRepository.findById(id).get();
             libroPaginSortRepository.deleteById(id);
             return libro;
-        }
-        return null;
     }
 
     public boolean exists(Integer id){
