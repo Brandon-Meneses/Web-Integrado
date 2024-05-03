@@ -139,6 +139,9 @@ web_modules/
 .env.production.local
 .env.local
 
+# Ignorar archivos .properties
+*.properties
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
