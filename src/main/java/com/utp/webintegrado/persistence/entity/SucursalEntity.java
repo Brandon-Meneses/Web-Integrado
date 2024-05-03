@@ -1,10 +1,7 @@
 package com.utp.webintegrado.persistence.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +12,8 @@ import lombok.Setter;
 public class SucursalEntity {
 
     @Id
-    @Column(name = "id_sucursal")
+    @Column(name = "id_sucursal", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSucursal;
 
     @Column(name = "nombre", nullable = false)
