@@ -2,17 +2,19 @@ package com.utp.webintegrado.web.controller;
 
 import com.utp.webintegrado.persistence.entity.SucursalEntity;
 import com.utp.webintegrado.service.SucursalService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/sucursal")
+@RequestMapping("/api/sucursal")
 public class SucursalController {
 
     private final SucursalService sucursalService;
 
+    @Autowired
     public SucursalController(SucursalService sucursalService) {
         this.sucursalService = sucursalService;
     }
@@ -41,7 +43,7 @@ public class SucursalController {
 
     @PutMapping("/{id}")
     public ResponseEntity<SucursalEntity> update(@RequestParam Integer id, @RequestParam SucursalEntity sucursal) {
-        if (sucursalService.exists(id)) {
+        if (sucursalService.exists(id) && id.equals(sucursal.getIdSucursal())) {
             return ResponseEntity.ok(sucursalService.update(id, sucursal));
         }
         return ResponseEntity.notFound().build();

@@ -2,17 +2,19 @@ package com.utp.webintegrado.web.controller;
 
 import com.utp.webintegrado.persistence.entity.LibroEntity;
 import com.utp.webintegrado.service.LibroService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/libro")
+@RequestMapping("/api/libro")
 public class LibroController {
 
     private final LibroService libroService;
 
+    @Autowired
     public LibroController(LibroService libroService) {
         this.libroService = libroService;
     }
@@ -41,7 +43,7 @@ public class LibroController {
 
     @PutMapping("/{id}")
     public ResponseEntity<LibroEntity> update(@PathVariable Integer id, @RequestBody LibroEntity libro) {
-        if (libroService.exists(id)) {
+        if (libroService.exists(id) && id.equals(libro.getIdLibro())) {
             return ResponseEntity.ok(libroService.update(id, libro));
         }
         return ResponseEntity.notFound().build();

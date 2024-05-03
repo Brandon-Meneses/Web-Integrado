@@ -31,19 +31,13 @@ public class AdquisicionService {
     }
 
     public AdquisicionEntity update(Integer id, AdquisicionEntity adquisicion) {
-        if (adquisicionPaginSortRepository.existsById(id)) {
             return adquisicionPaginSortRepository.save(adquisicion);
-        }
-        return null;
     }
 
     public AdquisicionEntity delete(Integer id) {
-        if (adquisicionPaginSortRepository.existsById(id)) {
             AdquisicionEntity adquisicion = adquisicionPaginSortRepository.findById(id).get();
             adquisicionPaginSortRepository.deleteById(id);
             return adquisicion;
-        }
-        return null;
     }
 
     public boolean exists(Integer id){

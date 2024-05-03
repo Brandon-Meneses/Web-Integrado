@@ -30,19 +30,13 @@ public class SucursalService {
     }
 
     public SucursalEntity update(Integer id, SucursalEntity sucursal) {
-        if (sucursalPaginSortRepository.existsById(id)) {
             return sucursalPaginSortRepository.save(sucursal);
-        }
-        return null;
     }
 
     public SucursalEntity delete(Integer id) {
-        if (sucursalPaginSortRepository.existsById(id)) {
             SucursalEntity sucursal = sucursalPaginSortRepository.findById(id).get();
             sucursalPaginSortRepository.deleteById(id);
             return sucursal;
-        }
-        return null;
     }
 
     public boolean exists(Integer id){
