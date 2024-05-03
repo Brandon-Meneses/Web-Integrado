@@ -29,17 +29,31 @@ La aplicación permitirá a los empleados consultar el stock actualizado, buscar
 
 2. Asegurate que `MySQL` esté instalado y corriendo en el puerto `3306`
 
-3. Configura tus credenciales de la base de datos en `src/main/resources/application.properties`
+3. Crea  un nuevo archivo `application.properties` en base a `application.properties.copy`:
+
+    ```bash
+    cp src/main/resources/application.properties.copy src/main/resources/application.properties
+    ```
+
+   Luego, configura las credenciales de tu base de datos en `src/main/resources/application.properties` que acbas de crear:
 
     ```properties
+   # Ejemplo:
     spring.datasource.username=root
     spring.datasource.password=root
     ```
 
-4. Inicia el servidor backend
-
+4. Inicia el servidor backend.
+   
+   Puede hacerlo corriendo el archivo de `src/main/java/com/utp/webintegrado/WebIntegradoApplication.java` o ejecutando el siguiente comando en la raíz del proyecto:
+   
     ```bash
+   # Bash:
+   chmod +x ./gradlew
     ./gradlew bootRun
+   
+    # CMD:
+    gradlew.bat bootRun
     ```
 
     No es necesario crear la base de datos manualmente, ya que Spring Boot se encargará de crearla automáticamente al iniciar la aplicación.
