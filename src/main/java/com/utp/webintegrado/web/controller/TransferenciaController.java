@@ -2,17 +2,19 @@ package com.utp.webintegrado.web.controller;
 
 import com.utp.webintegrado.persistence.entity.TransferenciaEntity;
 import com.utp.webintegrado.service.TransferenciaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/transferencia")
+@RequestMapping("/api/transferencia")
 public class TransferenciaController {
 
     private final TransferenciaService transferenciaService;
 
+    @Autowired
     public TransferenciaController(TransferenciaService transferenciaService) {
         this.transferenciaService = transferenciaService;
     }
