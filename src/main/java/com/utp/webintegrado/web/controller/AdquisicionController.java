@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/adquisicion")
+@RequestMapping("/api/adquisicion")
 public class AdquisicionController {
 
     private final AdquisicionService adquisicionService;
@@ -43,7 +43,7 @@ public class AdquisicionController {
 
     @PutMapping("/{id}")
     public ResponseEntity<AdquisicionEntity> update(@PathVariable Integer id, @RequestBody AdquisicionEntity adquisicion) {
-        if (adquisicionService.exists(id)) {
+        if (adquisicionService.exists(id) && id.equals(adquisicion.getIdAdquisicion())) {
             return ResponseEntity.ok(adquisicionService.update(id, adquisicion));
         }
         return ResponseEntity.notFound().build();
