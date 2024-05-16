@@ -51,7 +51,9 @@ La aplicación permitirá a los empleados consultar el stock actualizado, buscar
    # Bash:
    chmod +x ./gradlew
     ./gradlew bootRun
+    ```
    
+    ```bash
     # CMD:
     gradlew.bat bootRun
     ```
