@@ -9,9 +9,10 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChange(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChange(HttpSecurity http) throws Exception { // Permite configurar la seguridad de la aplicación
         http
                 .csrf().disable() // desactiva la protección antiafalsificación de solicitudes csrf (no para producción)
+                .cors().and() // habilita la configuración de cors, por defecto no permite que otros dominios accedan a la aplicación
                 .authorizeHttpRequests() // autoriza las solicitudes http
                 .anyRequest() // cualquier solicitud
                 .authenticated() // debe estar autenticado
