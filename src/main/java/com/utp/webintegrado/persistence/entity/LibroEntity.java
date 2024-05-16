@@ -22,7 +22,7 @@ public class LibroEntity {
     @Column(name = "autor", nullable = false)
     private String autor;
 
-    @Column(name = "isbn", nullable = false)
+    @Column(name = "isbn", nullable = false, unique = true)
     private String isbn;
 
     @Column(name = "editorial", nullable = false)
