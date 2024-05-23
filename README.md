@@ -58,8 +58,20 @@ La aplicación permitirá a los empleados consultar el stock actualizado, buscar
 
     No es necesario crear la base de datos manualmente, ya que Spring Boot se encargará de crearla automáticamente al iniciar la aplicación.
 
+
 5. Asegurese que se esté ejecutando en el puerto `8080`
-    
+
+
+6. Consultar la documentación de la API
+
+   Una vez que el servidor esté en funcionamiento, puedes acceder a la documentación de la API generada por Swagger. Esta documentación proporciona detalles sobre los endpoints disponibles, los parámetros que aceptan y los formatos de respuesta que devuelven.
+
+   Para acceder a la documentación de Swagger, abre un navegador web y navega a la siguiente URL:
+   
+    ```
+   http://localhost:8080/swagger-ui/index.html
+    ```
+   Aquí, podrás ver y probar todos los endpoints de la API.
 
 ### Frontend
 
