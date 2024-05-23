@@ -8,3 +8,9 @@ spring.datasource.password=root
 
 spring.jpa.hibernate.ddl-auto=update
 logging.level.org.springframework.security.web.*=debug
+
+# Configuración de Swagger - Documentación de la API
+springdoc.api-docs.enabled=true
+springdoc.swagger-ui.enabled=true
+springdoc.swagger-ui.path=/swagger-ui.html
+springdoc.packagesToScan=com.utp.webintegrado.web.controller
