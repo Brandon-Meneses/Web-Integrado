@@ -8,6 +8,10 @@ import { BookSearchComponent } from './components/book-search/book-search.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
+import { HomeComponent } from './components/home/home.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { FooterComponent } from './components/footer/footer.component';
     BookSearchComponent,
     DashboardComponent,
     InicioComponent,
-    FooterComponent
+    FooterComponent,
+    InventoryComponent,
+    HomeComponent,
+    ReportsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
