@@ -12,7 +12,7 @@ import lombok.Setter;
 public class SucursalEntity {
 
     @Id
-    @Column(name = "id_sucursal", nullable = false)
+    @Column(name = "id_sucursal")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idSucursal;
 
