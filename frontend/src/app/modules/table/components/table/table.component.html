@@ -1,0 +1,9 @@
+<p>(frontend: app/modules/table/componets/table) API Libros:</p>
+<div *ngIf="tabla; else noLibros">
+  {{tabla | json}}
+</div>
+
+<ng-template #noLibros>
+  <p>No se pudo obtener la tabla mediante la API.</p>
+  <p>corregir "Authorization" en "modules\table\components\table\table.component.ts" </p>
+</ng-template>
