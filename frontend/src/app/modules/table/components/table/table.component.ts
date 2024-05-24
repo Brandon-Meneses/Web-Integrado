@@ -14,7 +14,7 @@ export class TableComponent implements OnInit{
   ngOnInit(): void {
     const requestOptions = {
       headers: new HttpHeaders({
-        'Authorization': 'Basic dXNlcjpjNWE4YzZlYS1mMDliLTQzYTctYTQyOC1mZmRhMzgzY2Y1NmM=',
+        'Authorization': 'Basic YWRtaW46YWRtaW4=',
       })
     }
 
