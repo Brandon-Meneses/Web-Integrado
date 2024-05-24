@@ -18,14 +18,28 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable() // desactiva la protección antiafalsificación de solicitudes csrf (no para producción)
-                .cors().and() // habilita la configuración de cors, por defecto no permite que otros dominios accedan a la aplicación
-                .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET, "/api/**").permitAll() // permite todas las solicitudes GET a /api/**
-                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll() // permite todas las solicitudes a estas rutas
-                .anyRequest().authenticated() // cualquier otra solicitud debe estar autenticada
-                .and()
-                .httpBasic(); // debe ser autenticado con http basic
+            .csrf().disable()
+            .cors().and()
+            .authorizeHttpRequests()
+
+            .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+            .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()
+
+            // Permisos para el rol ADMIN
+            .requestMatchers(HttpMethod.GET, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.POST, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.PUT, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.DELETE, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
+
+            // Permisos para el rol BIBLIOTERARIO
+            .requestMatchers(HttpMethod.GET, "/api/transferencia/**", "/api/libro/**", "/api/stock_sucursal/**").hasRole("BIBLIOTERARIO")
+            .requestMatchers(HttpMethod.POST, "/api/transferencia/**", "/api/libro/**", "/api/stock_sucursal/**").hasRole("BIBLIOTERARIO")
+            .requestMatchers(HttpMethod.PUT, "/api/transferencia/**", "/api/libro/**", "/api/stock_sucursal/**").hasRole("BIBLIOTERARIO")
+            .requestMatchers(HttpMethod.DELETE, "/api/transferencia/**", "/api/libro/**", "/api/stock_sucursal/**").hasRole("BIBLIOTERARIO")
+
+            .anyRequest().authenticated()
+            .and()
+            .httpBasic();
         return http.build();
     }
 
@@ -36,7 +50,15 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("admin"))
                 .roles("ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(admin);
+
+        UserDetails bibliotecario = User.builder()
+                .username("bibliotecario")
+                .password(passwordEncoder().encode("bibliotecario"))
+                .roles("BIBLIOTERARIO")
+                .build();
+
+
+        return new InMemoryUserDetailsManager(admin, bibliotecario);
     }
 
     @Bean
