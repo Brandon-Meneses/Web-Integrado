@@ -12,6 +12,8 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { ContactComponent } from './components/contact/contact.component';
     InventoryComponent,
     HomeComponent,
     ReportsComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
