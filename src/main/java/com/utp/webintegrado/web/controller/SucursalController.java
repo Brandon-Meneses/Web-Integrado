@@ -26,7 +26,7 @@ public class SucursalController {
     }
 
     @RequestMapping("/{id}")
-    public ResponseEntity<SucursalEntity> getById(@RequestParam Integer id){
+    public ResponseEntity<SucursalEntity> getById(@PathVariable Integer id){
         if (sucursalService.exists(id)) {
             return ResponseEntity.ok(sucursalService.getByID(id));
         }
@@ -34,15 +34,12 @@ public class SucursalController {
     }
 
     @PostMapping
-    public ResponseEntity<SucursalEntity> save(@RequestParam SucursalEntity sucursal) {
-        if (sucursalService.exists(sucursal.getIdSucursal())) {
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<SucursalEntity> save(@RequestBody SucursalEntity sucursal) {
         return ResponseEntity.ok(sucursalService.save(sucursal));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SucursalEntity> update(@RequestParam Integer id, @RequestParam SucursalEntity sucursal) {
+    public ResponseEntity<SucursalEntity> update(@PathVariable Integer id, @RequestBody SucursalEntity sucursal) {
         if (sucursalService.exists(id) && id.equals(sucursal.getIdSucursal())) {
             return ResponseEntity.ok(sucursalService.update(id, sucursal));
         }
@@ -50,7 +47,7 @@ public class SucursalController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<SucursalEntity> delete(@RequestParam Integer id) {
+    public ResponseEntity<SucursalEntity> delete(@PathVariable Integer id) {
         if (sucursalService.exists(id)) {
             return ResponseEntity.ok(sucursalService.delete(id));
         }

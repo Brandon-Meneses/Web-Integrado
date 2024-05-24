@@ -26,7 +26,7 @@ public class TransferenciaController {
     }
 
     @RequestMapping("/{id}")
-    public ResponseEntity<TransferenciaEntity> getById(@RequestParam Integer id){
+    public ResponseEntity<TransferenciaEntity> getById(@PathVariable Integer id){
         if (transferenciaService.exists(id)) {
             return ResponseEntity.ok(transferenciaService.getByID(id));
         }
@@ -34,7 +34,7 @@ public class TransferenciaController {
     }
 
     @PostMapping
-    public ResponseEntity<TransferenciaEntity> save(@RequestParam TransferenciaEntity transferencia) {
+    public ResponseEntity<TransferenciaEntity> save(@RequestBody TransferenciaEntity transferencia) {
         if (transferenciaService.exists(transferencia.getIdTransferencia())) {
             return ResponseEntity.badRequest().build();
         }
@@ -42,7 +42,7 @@ public class TransferenciaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TransferenciaEntity> update(@RequestParam Integer id, @RequestParam TransferenciaEntity transferencia) {
+    public ResponseEntity<TransferenciaEntity> update(@PathVariable Integer id, @RequestBody TransferenciaEntity transferencia) {
         if (transferenciaService.exists(id)) {
             return ResponseEntity.ok(transferenciaService.update(id, transferencia));
         }
@@ -50,7 +50,7 @@ public class TransferenciaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<TransferenciaEntity> delete(@RequestParam Integer id) {
+    public ResponseEntity<TransferenciaEntity> delete(@PathVariable Integer id) {
         if (transferenciaService.exists(id)) {
             return ResponseEntity.ok(transferenciaService.delete(id));
         }
