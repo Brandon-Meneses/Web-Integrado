@@ -22,14 +22,14 @@ public class SecurityConfig {
             .cors().and()
             .authorizeHttpRequests()
 
-            .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/**", "/api/ollama").permitAll()
             .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()
 
             // Permisos para el rol ADMIN
-            .requestMatchers(HttpMethod.GET, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.POST, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.PUT, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
-            .requestMatchers(HttpMethod.DELETE, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.GET, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**", "/api/ollama/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.POST, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**", "/api/ollama/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.PUT, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**", "/api/ollama/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.DELETE, "/api/adquisicion/**", "/api/libro/**", "/api/stock_sucursal/**", "/api/sucursal/**", "/api/transferencia/**", "/api/usuario/**", "/api/ollama/**").hasRole("ADMIN")
 
             // Permisos para el rol BIBLIOTERARIO
             .requestMatchers(HttpMethod.GET, "/api/transferencia/**", "/api/libro/**", "/api/stock_sucursal/**").hasRole("BIBLIOTERARIO")
