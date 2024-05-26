@@ -12,10 +12,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,40 +22,39 @@ public class OllamaService {
 
 
     public String executeSql(String sql) {
-        String result = "";
+
+        if (!sql.trim().endsWith(";")) {
+            sql += ";";
+        }
+
+        StringBuilder result = new StringBuilder();
         try {
-            // Cambia estos detalles de conexión según tu configuración
             String dbUrl = "jdbc:mysql://localhost:3306/Gestor-Libreria-WebIntegrado";
             String username = "root";
             String password = "root";
 
-            // Crea una conexión a la base de datos
             Connection conn = DriverManager.getConnection(dbUrl, username, password);
-
-            // Crea un Statement para ejecutar la consulta SQL
             Statement stmt = conn.createStatement();
-
-            // Ejecuta la consulta SQL y obtén el ResultSet
             ResultSet rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
 
-            // Procesa el ResultSet y construye el resultado como String
             while (rs.next()) {
-                // Asume que estás obteniendo un resultado de tipo String
-                // Cambia esto según los datos que estés consultando
-                result += rs.getString(1) + "\n";
+                for (int i = 1; i <= columnsNumber; i++) {
+                    String columnValue = rs.getString(i);
+                    result.append(columnValue + " ");
+                }
+                result.append("\n");
             }
 
-            // Cierra el ResultSet y el Statement
             rs.close();
             stmt.close();
-
-            // Cierra la conexión
             conn.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            return "No se pudo obtener la respuesta de la base de datos, query generada incorrecta o no hay data para: " + sql;
         }
 
-        return result;
+        return result.toString();
     }
 
     public String generateSql(OllamaRequest request) {
@@ -100,27 +96,13 @@ public class OllamaService {
 
     }
 
-    private String formatDbResponse(String dbResponse) {
-        // Usa una expresión regular para extraer la fecha de la respuesta de la base de datos
-        Pattern pattern = Pattern.compile("\\|\\s*(\\d{4}-\\d{2}-\\d{2})\\s*\\|");
-        Matcher matcher = pattern.matcher(dbResponse);
-        if (matcher.find()) {
-            return matcher.group(1); // Devuelve solo la fecha
-        } else {
-            return "No se encontró una respuesta válida"; // Maneja el caso donde no se encuentra la fecha
-        }
-    }
-
-
     public String generateExplanation(OllamaRequest request) {
 
         // Simula la ejecución de SQL y obtiene la respuesta de la base de datos
-        String dbResponse = executeSql(generateSql(request));
+        String dbResponse = "{"+ executeSql(generateSql(request)) +"}";
 
-        System.out.println(dbResponse);
+        System.out.println("Respuesta consultada: "+ dbResponse);
 
-        // Limpia y formatea la respuesta de la base de datos
-        String formattedDbResponse = formatDbResponse(dbResponse);
 
         HttpURLConnection conn = null;
         BufferedReader br = null;
@@ -133,14 +115,14 @@ public class OllamaService {
             conn.setDoOutput(true);
 
             String jsonInputString = "{"
-                    + "\"model\":\"" + request.getModel_Chat() + "\","
-                    + "\"messages\":["
-                    + "{\"role\":\"assistant\","
-                    + "\"content\":\"usuario pregunta a la base de datos: " + request.getPrompt() + "\\n"
-                    + "y se obtuvo como respuesta: " + formattedDbResponse + "\\n"
-                    + "brinda una respuesta concisa y breve como asistente.\"}"
-                    + "]"
-                    + "}";
+                + "\"model\":\"" + request.getModel_Chat() + "\","
+                + "\"messages\":["
+                + "{\"role\":\"assistant\","
+                + "\"content\":\"Usuario pregunta a la base de datos: " + request.getPrompt() + "\\n"
+                + "y se obtuvo la siguiente respuesta de la base de datos: " + dbResponse.replace("\n", "\\n") + "\\n"
+                + ". Brinda una respuesta concisa y breve como asistente.\"}"
+                + "]"
+                + "}";
 
             try (OutputStream os = conn.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
