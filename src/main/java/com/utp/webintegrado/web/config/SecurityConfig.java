@@ -24,7 +24,7 @@ public class SecurityConfig {
             .cors().and()
             .authorizeHttpRequests()
 
-            .requestMatchers( "/api/auth/**").permitAll()
+            .requestMatchers( "/api/auth/**" , "/custom-servlet").permitAll()
 
             .requestMatchers(HttpMethod.GET,  "/api/usuario/**").hasRole("ADMIN")
 

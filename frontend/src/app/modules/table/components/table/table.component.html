@@ -1,6 +1,6 @@
 <p>(frontend: app/modules/table/componets/table) API Libros:</p>
-<div *ngIf="tabla; else noLibros">
-  {{tabla | json}}
+<div *ngIf="tablaArray; else noLibros">
+  {{tablaArray | json}}
 </div>
 
 <ng-template #noLibros>

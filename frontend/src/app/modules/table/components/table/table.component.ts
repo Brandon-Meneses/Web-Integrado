@@ -7,20 +7,14 @@ import { HttpClient, HttpHeaders} from "@angular/common/http";
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit{
-  tabla: any
+  tablaArray: any;
 
-  constructor(private http: HttpClient) {  }
+  constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
-    const requestOptions = {
-      headers: new HttpHeaders({
-        'Authorization': 'Basic YWRtaW46YWRtaW4=',
-      })
-    }
-
-    this.http.get('http://localhost:8080/api/libro', requestOptions).subscribe((data) => {
-      this.tabla = data
-    })
+  ngOnInit() {
+    this.http.get('http://localhost:8080/custom-servlet').subscribe(data => {
+      this.tablaArray = data;
+      console.log(this.tablaArray);
+    });
   }
-
 }

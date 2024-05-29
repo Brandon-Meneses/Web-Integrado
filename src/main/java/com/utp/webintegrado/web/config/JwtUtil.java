@@ -22,4 +22,20 @@ public class JwtUtil {
                 .withExpiresAt(new Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1)))
                 .sign(ALGORITMO);
     }
+
+    public Boolean verifyJwt(String jwtoken){
+        try {
+            JWT.require(ALGORITMO).build().verify(jwtoken);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    public String getEmail(String jwtoken){
+        return JWT.require(ALGORITMO)
+                .build()
+                .verify(jwtoken)
+                .getSubject();
+    }
 }
