@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UsuarioService {
 
@@ -18,6 +20,10 @@ public class UsuarioService {
 
     public UsuarioEntity getByID(Integer id) {
         return usuarioPaginSortRepository.findById(id).orElse(null);
+    }
+
+    public Optional<UsuarioEntity> getByEmail(String email) {
+        return usuarioPaginSortRepository.findByEmail(email);
     }
 
     public Page<UsuarioEntity> getAll(int page, int size) {

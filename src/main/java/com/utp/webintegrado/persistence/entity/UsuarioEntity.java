@@ -25,8 +25,9 @@ public class UsuarioEntity {
     @Column(name = "contrasena", nullable = false, unique = true)
     private String contrasena;
 
-    @Column(name = "rol", nullable = false)
-    private String rol;
+    @ManyToOne
+    @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
+    private RolEntity rol;
 
     @ManyToOne
     @JoinColumn(name = "id_sucursal", referencedColumnName = "id_sucursal")
