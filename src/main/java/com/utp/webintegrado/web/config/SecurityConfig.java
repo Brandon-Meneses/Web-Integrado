@@ -3,6 +3,8 @@ package com.utp.webintegrado.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,9 +24,11 @@ public class SecurityConfig {
             .cors().and()
             .authorizeHttpRequests()
 
+            .requestMatchers( "/api/auth/**").permitAll()
+
             .requestMatchers(HttpMethod.GET,  "/api/usuario/**").hasRole("ADMIN")
 
-            .requestMatchers(HttpMethod.GET, "/api/**", "/api/ollama").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/**", "/api/auth/**","/api/ollama").permitAll()
             .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()
 
             // Permisos para el rol ADMIN
@@ -45,29 +49,15 @@ public class SecurityConfig {
         return http.build();
     }
 
-    /*
+
+
     @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails admin = User.builder()
-                .username("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("ADMIN")
-                .build();
-
-        UserDetails bibliotecario = User.builder()
-                .username("bibliotecario")
-                .password(passwordEncoder().encode("bibliotecario"))
-                .roles("BIBLIOTERARIO")
-                .build();
-
-
-        return new InMemoryUserDetailsManager(admin, bibliotecario);
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+        return configuration.getAuthenticationManager();
     }
-    */
 
 
-
-    @Bean
+                                                       @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }

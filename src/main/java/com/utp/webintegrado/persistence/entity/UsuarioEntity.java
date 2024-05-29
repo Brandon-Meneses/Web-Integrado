@@ -4,11 +4,13 @@ package com.utp.webintegrado.persistence.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "usuario")
+@ToString
 public class UsuarioEntity {
 
     @Id

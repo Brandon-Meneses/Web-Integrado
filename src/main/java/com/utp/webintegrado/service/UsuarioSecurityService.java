@@ -24,6 +24,8 @@ public class UsuarioSecurityService implements UserDetailsService {
         UsuarioEntity usuarioEntity = this.usuarioRepository.findByEmail(id)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario "+ id +" no encontrado"));
 
+        System.out.println("Usuario: "+ usuarioEntity);
+
         String roleName = usuarioEntity.getRol().getRolNombre();
 
         return User.builder()
