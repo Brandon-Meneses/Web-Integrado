@@ -1,9 +1,26 @@
-<p>(frontend: app/modules/table/componets/table) API Libros:</p>
-<div *ngIf="tablaArray; else noLibros">
-  {{tablaArray | json}}
-</div>
-
-<ng-template #noLibros>
-  <p>No se pudo obtener la tabla mediante la API.</p>
-  <p>corregir "Authorization" en "modules\table\components\table\table.component.ts" </p>
-</ng-template>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>ISBN</th>
+      <th>Editorial</th>
+      <th>Año de Publicación</th>
+      <th>Stock Total</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let libro of tablaArray">
+      <td>{{libro.idLibro}}</td>
+      <td>{{libro.titulo}}</td>
+      <td>{{libro.autor}}</td>
+      <td>{{libro.isbn}}</td>
+      <td>{{libro.editorial}}</td>
+      <td>{{libro.anioPublicacion}}</td>
+      <td>{{libro.stockTotal}}</td>
+      <td>{{libro.descripcion}}</td>
+    </tr>
+  </tbody>
+</table>
