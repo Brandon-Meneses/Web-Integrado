@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 //Angular Material UI components
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -20,6 +21,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {TableModule} from "./modules/table/table.module";
 import {HttpClientModule} from "@angular/common/http";
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     ReportsComponent,
     ContactComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     MatSlideToggleModule,
     MatTableModule,
-    TableModule
+    TableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,20 @@
+<div>
+  <h2 class="card-title">Iniciar sesión</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Correo Electrónico</span>
+      </label>
+      <input type="email" [(ngModel)]="email" name="email" required placeholder="tuemail@ejemplo.com" class="input input-bordered" />
+    </div>
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Contraseña</span>
+      </label>
+      <input type="password" [(ngModel)]="password" name="password" required placeholder="********" class="input input-bordered" />
+    </div>
+    <div class="form-control mt-6">
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    </div>
+  </form>
+</div>

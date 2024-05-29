@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor() { }
+  showLoginForm = false;
+
+  toggleLoginForm() {
+    this.showLoginForm = !this.showLoginForm;
+  }
 }
