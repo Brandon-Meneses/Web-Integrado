@@ -1,4 +1,4 @@
-package com.utp.webintegrado.servlets;
+package com.utp.webintegrado.web.servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
