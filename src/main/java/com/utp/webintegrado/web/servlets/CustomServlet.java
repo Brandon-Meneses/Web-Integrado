@@ -1,30 +1,41 @@
 package com.utp.webintegrado.web.servlets;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.utp.webintegrado.persistence.entity.LibroEntity;
+import com.utp.webintegrado.persistence.repository.LibroPaginSortRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import java.io.IOException;
+import java.util.List;
 
 public class CustomServlet extends HttpServlet {
 
+    private LibroPaginSortRepository libroRepository;
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.getWriter().write("Respuesta desde el servlet personalizado");
+    public void init() throws ServletException {
+        super.init();
+        WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+        if (springContext != null) {
+            libroRepository = springContext.getBean(LibroPaginSortRepository.class);
+        } else {
+            throw new IllegalStateException("Spring context is not initialized");
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String titulo = req.getParameter("titulo");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<LibroEntity> libros = libroRepository.findAll();
+        String librosJson = objectMapper.writeValueAsString(libros);
 
-        if (titulo == null || titulo.isEmpty()) {
-            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            resp.getWriter().write("El título del libro no puede estar vacío");
-            return;
-        }
-
-        resp.setStatus(HttpServletResponse.SC_OK);
-        resp.getWriter().write("El título del libro es: " + titulo);
+        resp.setContentType("application/json");
+        resp.getWriter().write(librosJson);
     }
 
 }
