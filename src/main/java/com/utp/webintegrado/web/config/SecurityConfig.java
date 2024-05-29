@@ -22,6 +22,8 @@ public class SecurityConfig {
             .cors().and()
             .authorizeHttpRequests()
 
+            .requestMatchers(HttpMethod.GET,  "/api/usuario/**").hasRole("ADMIN")
+
             .requestMatchers(HttpMethod.GET, "/api/**", "/api/ollama").permitAll()
             .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**").permitAll()
 
