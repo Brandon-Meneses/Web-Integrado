@@ -12,7 +12,7 @@ export class TableComponent implements OnInit{
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:8080/custom-servlet').subscribe(data => {
+    this.http.get('http://localhost:8080/api/sucursal').subscribe(data => {
       this.tablaArray = data;
       console.log(this.tablaArray);
     });
