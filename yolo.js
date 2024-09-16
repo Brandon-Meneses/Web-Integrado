@@ -1,1 +1,1 @@
-ok
+const pair ="BTCUSDTa";
